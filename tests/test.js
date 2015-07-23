@@ -10,7 +10,7 @@ describe('find-the-fat', function() {
     };
 
     var called = false;
-    findTheFat(teensy, 'title', 50000, function(s) {
+    findTheFat(teensy, teensy.title, 50000, function(s) {
       called = true;
     });
     assert(!called);
@@ -37,7 +37,7 @@ describe('find-the-fat', function() {
 
     var called = false;
     var output = [];
-    findTheFat(phatty, 'title', 50000, function(s) {
+    findTheFat(phatty, phatty.title, 50000, function(s) {
       called = true;
       output.push(s);
     });
