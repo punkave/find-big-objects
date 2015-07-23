@@ -9,7 +9,7 @@ var teensy = {
 };
 
 
-findTheFat(object, 'title', 50000);
+findTheFat(teensy, teensy.title, 50000);
 // No output produced here
 
 var phatty = {
@@ -29,7 +29,7 @@ for (i = 0; (i < 16); i++) {
   phatty.my.thing.is.huge += phatty.my.thing.is.huge;
 }
 
-findTheFat(object, 'title', 50000);
+findTheFat(phatty, phatty.title, 50000);
 // phatty: 327680 bytes
 //   my: 327680 bytes
 //   my.thing: 327680 bytes
@@ -39,4 +39,5 @@ findTheFat(object, 'title', 50000);
 
 ## Changelog
 
+0.1.1: just pass in your own title. Show the sizes.
 0.1.0: initial release. Tests passing.

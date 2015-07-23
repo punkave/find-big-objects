@@ -4,7 +4,7 @@ var _ = require('lodash');
 // it writes to console.log. Fourth argument is mostly
 // used for testing
 
-module.exports = function(object, labelProperty, threshold, _output) {
+module.exports = function(object, label, threshold, _output) {
   if (!_output) {
     _output = output;
   }
@@ -12,14 +12,14 @@ module.exports = function(object, labelProperty, threshold, _output) {
   if (size < threshold) {
     return;
   }
-  _output(object[labelProperty] + ':');
+  _output(label + ' (' + size + ') :');
   spelunk(object, '');
   function spelunk(object, dotPath) {
     _.forOwn(object, function(value, name) {
       var myDotPath = dotPath ? (dotPath + '.' + name) : name;
       var size = JSON.stringify(value).length;
       if (size > threshold) {
-        _output('  ' + myDotPath);
+        _output('  ' + myDotPath + '(' + size + ')');
         if (typeof(value) === 'object') {
           spelunk(value, myDotPath);
         }
