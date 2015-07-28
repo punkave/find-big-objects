@@ -44,6 +44,8 @@ phatty (327765) :
 
 ## Changelog
 
-0.1.2: just tweaking the README.
-0.1.1: just pass in your own title. Show the sizes.
-0.1.0: initial release. Tests passing.
+* 0.1.2: just tweaking the README.
+
+* 0.1.1: just pass in your own title. Show the sizes.
+
+* 0.1.0: initial release. Tests passing.
