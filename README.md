@@ -30,14 +30,20 @@ for (i = 0; (i < 16); i++) {
 }
 
 findTheFat(phatty, phatty.title, 50000);
-// phatty: 327680 bytes
-//   my: 327680 bytes
-//   my.thing: 327680 bytes
-//   my.thing.is: 327680 bytes
-//   my.thing.is.huge: 327680 bytes
+```
+
+Produces this output:
+
+```
+phatty (327765) :
+  my(327708)
+  my.thing(327698)
+  my.thing.is(327691)
+  my.thing.is.huge(327682)
 ```
 
 ## Changelog
 
+0.1.2: just tweaking the README.
 0.1.1: just pass in your own title. Show the sizes.
 0.1.0: initial release. Tests passing.
