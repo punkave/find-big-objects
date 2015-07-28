@@ -1,11 +1,8 @@
 {
   "name": "find-the-fat",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Find the fat in your objects. Detect large objects and print out dot paths to the properties that contribute to their huge-iosity.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "scripts": {
     "test": "mocha tests/test.js"
   },
