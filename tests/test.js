@@ -1,25 +1,25 @@
 var assert = require('assert');
 
-var findTheFat = require('../index.js');
+var findBigObjects = require('../index.js');
 
-describe('find-the-fat', function() {
-  it('does not trigger on a teensy object', function() {
-    var teensy = {
-      title: 'teensy',
+describe('find-big-objects', function() {
+  it('does not trigger on a small object', function() {
+    var small = {
+      title: 'small',
       thisObjectIs: 'really small'
     };
 
     var called = false;
-    findTheFat(teensy, teensy.title, 50000, function(s) {
+    findBigObjects(small, small.title, 50000, function(s) {
       called = true;
     });
     assert(!called);
   });
 
-  it('does trigger on a phatty object', function() {
+  it('does trigger on a big object', function() {
 
-    var phatty = {
-      title: 'phatty',
+    var big = {
+      title: 'big',
       my: {
         thing: {
           is: {
@@ -27,23 +27,23 @@ describe('find-the-fat', function() {
           }
         }
       },
-      other: 'not so phatty property'
+      other: 'not so big property'
     };
 
     var i;
     for (i = 0; (i < 16); i++) {
-      phatty.my.thing.is.huge += phatty.my.thing.is.huge;
+      big.my.thing.is.huge += big.my.thing.is.huge;
     }
 
     var called = false;
     var output = [];
-    findTheFat(phatty, phatty.title, 50000, function(s) {
+    findBigObjects(big, big.title, 50000, function(s) {
       called = true;
       output.push(s);
     });
     assert(called);
     assert(output.length === 5);
-    assert(output[0].match(/phatty/));
+    assert(output[0].match(/big/));
     assert(output[1] && output[1].match(/my/));
     assert(output[1] && (!output[1].match(/huge/)));
     assert(output[2] && output[2].match(/thing/));
